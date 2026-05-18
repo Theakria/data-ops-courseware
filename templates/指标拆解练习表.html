@@ -1,6 +1,130 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>指标拆解练习表</title><link rel="stylesheet" href="../assets/style.css"></head><body><main class="deck">
-<section class="hero"><span class="eyebrow">课后练习</span><h1>指标拆解练习表</h1><p>选一个自己正在看的业务问题，按“目标 → 公式 → 数据 → 动作”填一遍。填完以后，再去 EasyBI 或分析工作台查。</p><div class="meta"><span class="chip">适用：续保率、退保率、转化率、权益领取率、投放 ROI</span><span class="chip">建议：每人完成 1 个真实问题</span></div></section>
-<nav class="nav"><a href="../index.html">课程地图</a><a href="../01_先想清楚再查数_20分钟版.html">第 1 期</a><a href="目标-拆解-数据自检卡.html">自检卡</a><a href="工作台查询检查表.html">工作台检查表</a></nav>
-<section class="section"><h2>练习表</h2><table><thead><tr><th>要填什么</th><th>填写说明</th><th>示例</th></tr></thead><tbody><tr><td>业务目标</td><td>想改善什么结果</td><td>判断 4 月续保保费下降的主要原因</td></tr><tr><td>核心指标</td><td>用哪个指标判断目标是否变好/变差</td><td>T+30 保费续保率</td></tr><tr><td>指标公式</td><td>先写清分子和分母</td><td>T+30 续保保费 ÷ 到期保费</td></tr><tr><td>分母</td><td>这个指标里“应该发生的人/金额”是谁</td><td>4 月到期保费</td></tr><tr><td>分子</td><td>这个指标里“实际完成的人/金额”是谁</td><td>T+30 内重新投保保费</td></tr><tr><td>继续往下拆</td><td>沿公式拆到可行动的环节</td><td>自动扣费成功保费、用户主动重新投保保费</td></tr><tr><td>EasyBI 先看什么</td><td>指标、时间、范围、维度</td><td>近 8 周，按渠道看续保率、到期保费、续保保费</td></tr><tr><td>查不到什么</td><td>需要找分析师补的字段或数据集</td><td>支付失败原因、触达明细、用户行为路径</td></tr><tr><td>下一步动作</td><td>如果原因成立，要做什么</td><td>改提醒、改入口、做召回、排查扣费链路</td></tr></tbody></table></section>
-<section class="section"><h2>空白填写区</h2><div class="grid two"><div class="card"><h4>我的问题</h4><p>业务目标：________________________</p><p>核心指标：________________________</p><p>指标公式：________________________</p><p>分母：________________________</p><p>分子：________________________</p></div><div class="card"><h4>我的查询计划</h4><p>时间范围：________________________</p><p>筛选范围：________________________</p><p>拆分维度：________________________</p><p>工作台查不到：________________________</p><p>下一步动作：________________________</p></div></div></section>
-<footer class="footer">指标拆解练习表 · HTML 版</footer></main></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>拆指标卡</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+    .route-card,.flow-card,.answer-card,.decision-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(16,24,39,.05)}
+    .route-card b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:var(--blue);color:#fff;margin-bottom:10px}
+    .route-card h3,.answer-card h3{font-size:20px;margin:0 0 8px}
+    .route-card p,.flow-card p,.answer-card p,.decision-card p{margin:.25em 0;color:#4b5563;font-weight:700}
+    .flow{display:grid;grid-template-columns:1fr 68px 1fr;gap:14px;align-items:stretch;margin-top:18px}
+    .flow-card h3{margin:0 0 10px;font-size:22px}
+    .flow-arrow{display:grid;place-items:center;color:#6b4b1d;font-weight:900;font-size:28px}
+    .formula{font-size:24px;font-weight:900;line-height:1.45}
+    .formula span{display:inline-block;background:#101827;color:#fff;border-radius:14px;padding:8px 10px;margin:4px 2px}
+    .answer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+    .answer-card h3,.decision-card h3{color:#136448}
+    .decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+    .decision-card{display:grid;gap:12px}
+    .decision-card h3{margin:0;font-size:20px}
+    .decision-card .next{border-top:1px dashed #d9cbb8;padding-top:12px;color:#111827}
+    .no-homework{margin-top:18px;padding:16px 18px;border-radius:18px;background:#fff7e8;border:1px solid #f0d8a8;color:#5f4215;font-size:18px;font-weight:900}
+    .plain-link{color:#0f5f46;font-weight:900;text-decoration:none;border-bottom:2px solid rgba(15,95,70,.25)}
+    .chip,.nav a,.route-card p,.flow-card p,.answer-card p,.decision-card p{overflow-wrap:anywhere}
+    @media(max-width:900px){
+      html,body{max-width:100%;overflow-x:hidden}
+      .deck{width:100%;max-width:100%;overflow:hidden;padding:16px 12px 56px}
+      .hero,.section{width:80vw!important;max-width:80vw!important;margin-left:0;margin-right:0}
+      .hero{padding:32px 20px}
+      .hero h1{font-size:34px}
+      .hero p{font-size:16px;overflow-wrap:anywhere;word-break:break-word}
+      .meta{display:grid;grid-template-columns:minmax(0,1fr)}
+      .chip{display:block;white-space:normal}
+      .route,.flow,.answer-grid,.decision-grid{grid-template-columns:1fr}
+      .flow-arrow{font-size:22px;transform:rotate(90deg);min-height:28px}
+      .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:80vw!important;max-width:80vw!important;overflow:visible}
+      .nav a,.lead,.no-homework{overflow-wrap:anywhere;word-break:break-word;white-space:normal;text-align:center}
+      .section{overflow:hidden}
+    }
+  </style>
+</head>
+<body>
+<main class="deck">
+  <section class="hero">
+    <span class="eyebrow">课堂速查</span>
+    <h1>拆指标卡</h1>
+    <p>打开 EasyBI 前，先把“我要查什么、为什么查、查完怎么动”说清楚。运营同学不用写报告，能说出判断就够了。</p>
+    <div class="meta">
+      <span class="chip">3 分钟定查数方向</span>
+      <span class="chip">建议嵌在第 1 期讲完公式后使用</span>
+    </div>
+  </section>
+
+  <nav class="nav">
+    <a href="../01_先想清楚再查数_20分钟版.html#split-card-entry">回到第 1 期正文</a>
+    <a href="目标-拆解-数据自检卡.html">上一张：想清楚卡</a>
+    <a href="../03_EasyBI探索分析_20分钟版.html#query-checklist-entry">去第 3 期查数</a>
+    <a href="工作台查询检查表.html">下一张：查数清单</a>
+  </nav>
+
+  <section class="section">
+    <h2>先别查数，先过 4 个问题</h2>
+    <p class="lead">不用填表。讲师现场带着过一遍，大家知道下一步怎么查就行。</p>
+    <div class="route">
+      <div class="route-card"><b>1</b><h3>哪里不对？</h3><p>例如：4 月续保保费下降。</p></div>
+      <div class="route-card"><b>2</b><h3>用什么判断？</h3><p>先选一个主指标，不要一上来堆很多数。</p></div>
+      <div class="route-card"><b>3</b><h3>先拆哪边？</h3><p>分母=本来有机会发生；分子=实际完成。</p></div>
+      <div class="route-card"><b>4</b><h3>查完怎么动？</h3><p>改提醒、改入口、做召回，或排查支付链路。</p></div>
+    </div>
+    <div class="no-homework">一句话记住：先判断要查什么，再打开工作台。</div>
+  </section>
+
+  <section class="section">
+    <h2>例子：续保保费下降，怎么拆</h2>
+    <p class="lead">看到下降，先不要问“为什么降了”。先把它拆成一个能判断的公式。</p>
+    <div class="flow">
+      <div class="flow-card">
+        <h3>业务现象</h3>
+        <p>4 月续保保费下降。</p>
+        <p><b>要判断：</b>是可续的盘子变小，还是到期客户没有被留住。</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-card">
+        <h3>核心指标</h3>
+        <p class="formula"><span>T+30 续保保费</span> ÷ <span>到期保费</span></p>
+        <p class="mini">T+30 的意思是：到期后 30 天内有没有续上。</p>
+      </div>
+    </div>
+    <div class="answer-grid">
+      <div class="answer-card"><h3>先看分母</h3><p>到期保费少了吗？</p><p class="mini">少了，可能只是这个月可续的客户或金额变少。</p></div>
+      <div class="answer-card"><h3>再看分子</h3><p>T+30 续保保费少了吗？</p><p class="mini">少了，再拆自动扣费、主动重新投保。</p></div>
+      <div class="answer-card"><h3>最后看动作</h3><p>问题落在哪个环节？</p><p class="mini">触达、入口、扣费、渠道、人群。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>查完后，看这张判断卡</h2>
+    <p class="lead">每张卡只回答两件事：我看到了什么；下一步先处理哪里。</p>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <h3>到期盘子变小</h3>
+        <p><b>看到：</b>到期保费下降，续保率基本没变。</p>
+        <p class="next"><b>下一步：</b>看产品、渠道、人群里，是哪一类到期客户变少。</p>
+      </div>
+      <div class="decision-card">
+        <h3>续保没有接住</h3>
+        <p><b>看到：</b>到期保费没变，但 T+30 续保保费下降。</p>
+        <p class="next"><b>下一步：</b>重点看自动扣费和主动重新投保，确认哪条路径掉了。</p>
+      </div>
+      <div class="decision-card">
+        <h3>某个渠道拖累</h3>
+        <p><b>看到：</b>整体下降主要集中在某个渠道。</p>
+        <p class="next"><b>下一步：</b>先排查这个渠道的提醒触达、入口点击、支付成功。</p>
+      </div>
+      <div class="decision-card">
+        <h3>工作台字段不够</h3>
+        <p><b>看到：</b>工作台看不到失败原因、触达明细或行为路径。</p>
+        <p class="next"><b>下一步：</b>带着明确问题找分析师补字段，不要一开始就提大需求。</p>
+      </div>
+    </div>
+    <div class="no-homework">正式查询前，可以接着打开 <a class="plain-link" href="工作台查询检查表.html">查数清单</a>，确认时间、范围、维度。</div>
+  </section>
+
+  <footer class="footer">拆指标卡 · HTML 版</footer>
+</main>
+</body>
+</html>
