@@ -177,11 +177,17 @@
 
   <section class="section qa">
     <h2>05 1 分钟有奖竞答</h2>
-    <p class="lead">这题不考按钮，考看到异常以后如何定位问题。</p>
-    <div class="qa-question">发现当天续保保单从日均 100 单掉到了 10 单，要怎么排查问题？</div>
+    <p class="lead">先选第一步，再补充你会怎样继续向下定位。</p>
+    <div class="qa-question">平时每天续保约 100 单，今天只有 10 单。第一步应该怎么查？</div>
+    <div class="qa-options">
+      <div class="qa-option">A. 先看总可续规模和保单续保率是否变化</div>
+      <div class="qa-option">B. 直接找开发排查系统</div>
+      <div class="qa-option">C. 先修改运营活动</div>
+    </div>
+    <div class="qa-question">如果发现整体变化主要集中在某个 SKU，下一步应该怎么做？</div>
     <details>
       <summary>查看参考答案</summary>
-      <p>先看总可续规模有没有变化，再看保单续保率有没有变化。哪个指标变化明显，就按产品继续下钻；例如查到某个 SKU 的续保率强烈波动，就可以带着定位结果去找产品经理和开发排查。</p>
+      <p>先选 A。确认是机会规模变少，还是续保率下降；再按产品下钻。若某个 SKU 波动明显，带着数据结果找产品经理和开发排查。</p>
     </details>
     <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
   </section>
