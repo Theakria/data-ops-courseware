@@ -9,14 +9,14 @@
 <body>
 <main class="deck">
   <section class="hero">
-    <span class="eyebrow">EasyBI / 分析工作台工具</span>
+    <span class="eyebrow">第三节内嵌工具 · EasyBI</span>
     <h1>查数清单</h1>
-    <p>打开工作台前，先确认这 6 件事。这样查出来的数据才不会变成一张“看起来很大、但不知道怎么用”的表。</p>
+    <p>打开工作台前先定范围，看到结果后再定动作。用这张清单把一次查询变成一次运营判断。</p>
   </section>
 
   <nav class="nav">
-    <a href="../03_EasyBI探索分析_20分钟版.html#query-checklist-entry">回到第 3 期正文</a>
-    <a href="指标拆解练习表.html">上一张：拆指标卡</a>
+    <a href="../03_EasyBI探索分析_20分钟版.html#query-checklist-entry">回到第三节正文</a>
+    <a href="指标拆解练习表.html">上一张：续保路径图</a>
     <a href="../index.html">课程地图</a>
   </nav>
 
@@ -25,29 +25,27 @@
     <table>
       <thead><tr><th>检查项</th><th>要说清楚</th><th>示例</th></tr></thead>
       <tbody>
-        <tr><td>1. 看什么指标</td><td>这次最终要判断哪个结果</td><td>T+30 保费续保率、保单毛利、权益领取率</td></tr>
-        <tr><td>2. 看哪段时间</td><td>按自然日、到期月、投放日期，还是活动日期</td><td>4 月到期保单、近 8 周趋势</td></tr>
-        <tr><td>3. 看哪些范围</td><td>产品、渠道、人群、城市、是否排除测试数据</td><td>宠物险主险，排除测试单和赠险用户</td></tr>
-        <tr><td>4. 按什么拆开看</td><td>先选最可能影响结果的 1-2 个维度</td><td>渠道、产品、用户层级</td></tr>
-        <tr><td>5. 先看趋势还是分组</td><td>趋势看变化，分组找差异</td><td>先看近 8 周趋势，再按渠道拆</td></tr>
-        <tr><td>6. 查不到什么</td><td>工具没有字段、没有权限、或者需要多表关联</td><td>支付失败原因、触达明细、用户行为路径</td></tr>
+        <tr><td>1. 看什么指标</td><td>这次最终要判断哪个结果</td><td>业绩达成先看订单数；漏斗追因再看曝光、点击、下单</td></tr>
+        <tr><td>2. 看哪段时间</td><td>选一段能判断趋势的观察周期</td><td>近 14 天，按天看订单数变化</td></tr>
+        <tr><td>3. 看哪些范围</td><td>产品、入口或数据口径是否固定</td><td>在日报中用 `insu_sku_id` 选择负责产品</td></tr>
+        <tr><td>4. 按什么拆开看</td><td>现成报表不够时，再选 1-2 个维度</td><td>BBC 漏斗用 `exp_hour_day` 按天拆</td></tr>
+        <tr><td>5. 看结果的顺序</td><td>先主指标，再看解释主指标的环节</td><td>先订单数；异常后再看出单、留存与转化</td></tr>
+        <tr><td>6. 动作怎么验证</td><td>改完动作后，用同一范围和指标复测</td><td>动作后一周再次查看负责产品的订单数</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="section">
-    <h2>需要找分析师时，这样说</h2>
-    <div class="card good">
-      <h4>推荐表达</h4>
-      <p>我已经在 EasyBI 里看过近 8 周 T+30 保费续保率，发现渠道 A 从 5 月 12 日开始下降明显。工作台能看到续保率、到期保费、续保保费，但看不到支付失败原因。麻烦帮我补一下渠道 A 这段时间自动扣费失败原因分布。</p>
+    <h2>查询后 3 个判断</h2>
+    <div class="grid three">
+      <div class="card"><h4>订单数变了吗？</h4><p>先判断业绩结果是否真的变化，再决定是否要继续拆漏斗。</p></div>
+      <div class="card"><h4>掉点在哪一环？</h4><p>在 BBC 探索分析里，对照曝光、点击、下单和出保单找主要损失点。</p></div>
+      <div class="card good"><h4>改完怎么复测？</h4><p>保存本次口径和基线，动作上线后用同样的指标和范围再看一次。</p></div>
     </div>
-    <div class="card bad">
-      <h4>不推荐表达</h4>
-      <p>这个数据不太对，你帮我看下。</p>
-    </div>
+    <div class="takeaway">如果必要字段或数据集确实没有，再记录缺项并补权限；不要让等待阻断你已经能做的首轮判断。</div>
   </section>
 
-  <footer class="footer">查数清单 · HTML 版</footer>
+  <footer class="footer">查数清单 · 从查询到动作</footer>
 </main>
 </body>
 </html>

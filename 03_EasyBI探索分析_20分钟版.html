@@ -3,151 +3,206 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>第 3 期 · EasyBI 探索分析</title>
+  <title>第三节 · 实战课 - 如何使用工作台</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    .shot{width:100%;border-radius:22px;border:1px solid #e7dfd4;box-shadow:0 10px 30px rgba(0,0,0,.08);background:#fff}
-    .note{font-size:14px;color:#6b7280;margin-top:10px}
-    .mini{font-size:15px;color:#6b7280}
+    .figure{margin:22px 0 12px;padding:12px;border:1px solid #e7dfd4;border-radius:20px;background:#f8fafc}
+    .figure img{width:100%;display:block;border-radius:12px;background:#fff}
+    .figure figcaption{font-size:14px;color:#6b7280;font-weight:700;padding:10px 4px 2px}
+    .figure.contain img{max-height:740px;object-fit:contain;object-position:left top}
+    .narrow{max-width:520px}
+    .steps{display:grid;gap:10px;margin-top:18px}
+    .step{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;padding:17px 18px;border:1px solid #e8dfd1;border-radius:16px;background:#fff}
+    .step b{display:grid;place-items:center;width:34px;height:34px;border-radius:999px;background:#101827;color:#fff}
+    .step p{margin:0;color:#4b5563;font-weight:700}
+    .step strong{display:block;color:#101827;font-size:18px;margin-bottom:3px}
+    .qline{padding:16px 18px;margin:15px 0;border-left:4px solid #136448;border-radius:0 14px 14px 0;background:#f3f8f5;font-size:18px;font-weight:900}
+    .callout{background:#fff7e8;border:1px solid #f0d8a8;border-radius:16px;padding:16px 18px;color:#5f4215;font-weight:800;margin-top:16px}
+    .op td:first-child{font-weight:900;color:#136448;white-space:nowrap}
+    @media(max-width:900px){
+      .figure.contain img{max-height:none}
+      .step{grid-template-columns:38px 1fr;padding:14px}
+    }
   </style>
 </head>
 <body>
 <main class="deck">
   <section class="hero">
-    <span class="eyebrow">第 3 期 · EasyBI 探索分析</span>
-    <h1>用工作台<br>完成第一轮自查</h1>
-    <p>现在有 EasyBI 和分析工作台，运营不需要优先写 SQL。更重要的是：知道要看什么指标、怎么选时间和维度、看到结果后怎么判断下一步。</p>
+    <span class="eyebrow">第三节 · 15 分钟 · 实战课</span>
+    <h1>如何使用<br>工作台</h1>
+    <p>带着第一节建立的业务框架，先打开现成报表，再进入探索分析自己搭一轮查询：从业绩结果看到具体业务路径。</p>
     <div class="meta">
-      <span class="chip">入口：easybi.jd.com</span>
-      <span class="chip">前置：找分析师开数据集权限</span>
-      <span class="chip">现场工具：查数清单</span>
+      <span class="chip">时长：15 分钟</span>
+      <span class="chip">模块 1：权限开通</span>
+      <span class="chip">模块 2：功能介绍</span>
+      <span class="chip">模块 3：案例教程</span>
+      <span class="chip">真实截图演示</span>
     </div>
   </section>
 
   <nav class="nav">
     <a href="index.html">课程地图</a>
-    <a href="02_数据是怎么来的_20分钟版.html">上一期</a>
-    <a href="templates/指标拆解练习表.html">拆指标卡</a>
+    <a href="02_数据是怎么来的_20分钟版.html">上一节</a>
+    <a href="#access">权限开通</a>
+    <a href="#features">功能介绍</a>
+    <a href="#basic-case">入门案例</a>
+    <a href="#advanced-case">进阶案例</a>
     <a href="templates/工作台查询检查表.html">查数清单</a>
   </nav>
 
   <section class="section">
-    <h2>00 这节课不讲代码</h2>
+    <h2>00 两条路线，先易后难</h2>
     <div class="grid two">
-      <div class="card bad"><h4>不讲</h4><p>不讲 SQL，不讲建表，不讲数仓分层，不讲复杂关联。</p></div>
-      <div class="card good"><h4>只讲</h4><p>怎么在 EasyBI 探索分析里，把一个业务问题查到第一轮结论。</p></div>
+      <div class="card good"><h4>入门：先看现成报表</h4><p>打开「宠物经营数据日报」，筛选自己负责的产品，先看订单数是否影响业绩达成。</p></div>
+      <div class="card"><h4>进阶：再做探索分析</h4><p>进入「探索分析」，选择「BBC端到端漏斗数据」，自己放维度、指标和条件，定位漏斗哪一步出问题。</p></div>
     </div>
-    <div class="takeaway">运营先把工作台用明白。工作台查不到的，再带着清楚的问题找分析师。</div>
+    <div class="takeaway">不要求所有人一上来自己搭查询。先能从现成报表读出问题，再学习如何自行拆查。</div>
   </section>
 
-  <section class="section">
-    <h2>01 先拿到数据集权限</h2>
-    <p class="lead">EasyBI 的核心不是“会不会点按钮”，而是你有没有对应数据集权限，以及是否知道每个字段/指标代表什么。</p>
+  <section class="section" id="access">
+    <h2>01 模块一：权限开通</h2>
+    <p class="lead">先进入 EasyBI，再按页面提示处理访问权限。路径很简单，和打开一份无权限文档的体验类似。</p>
+    <div class="steps">
+      <div class="step"><b>1</b><p><strong>直接打开链接</strong>进入 <span class="kbd">easybi.jd.com</span>。已有权限可继续使用；没有权限时，按页面申请提示提交访问申请。</p></div>
+      <div class="step"><b>2</b><p><strong>从顶部导航进入「探索分析」</strong>点击页面顶部的「探索分析」，进入运营自己查询与拆解数据的工作台入口。</p></div>
+    </div>
+    <figure class="figure">
+      <img src="assets/easybi_workbench_home.png" alt="EasyBI 页面顶部导航包含探索分析入口">
+      <figcaption>进入 easybi.jd.com 后，页面顶部导航中的「探索分析」是进入工作台的入口。</figcaption>
+    </figure>
+    <div class="callout">如果打开链接后出现申请提示，点击申请即可；审批通过后，再回到同一入口继续操作。本页没有现成权限弹窗截图，不伪造界面。</div>
+  </section>
+
+  <section class="section" id="features">
+    <h2>02 模块二：先认识两个入口</h2>
+    <p class="lead">EasyBI 不是只有一种用法。对运营最实用的是：已有报表先筛选，自定义问题再进入探索分析。</p>
     <table>
-      <thead><tr><th>要做什么</th><th>怎么做</th><th>说明</th></tr></thead>
+      <thead><tr><th>我要做什么</th><th>选择哪个入口</th><th>操作难度</th></tr></thead>
       <tbody>
-        <tr><td>进入工具</td><td>打开 easybi.jd.com</td><td>进入 EasyBI 后使用“探索分析”模块</td></tr>
-        <tr><td>申请权限</td><td>找分析师或数据集负责人开通数据集权限</td><td>比如保单、续保、投放、权益、触达相关数据集</td></tr>
-        <tr><td>确认口径</td><td>问清常用指标、字段含义、更新时间</td><td>比如 T+30 续保率、到期保费、保单毛利分别怎么算</td></tr>
-        <tr><td>开始查询</td><td>有权限后，选择数据集，拖指标、维度和筛选条件</td><td>优先用工作台完成第一轮自查</td></tr>
+        <tr><td>看负责产品今天和近期的业绩</td><td>打开现成报表，改筛选条件</td><td>入门，日常最常用</td></tr>
+        <tr><td>按时间、入口或漏斗阶段自行拆结果</td><td>探索分析，选择数据集并配置字段</td><td>进阶，适合追原因</td></tr>
+        <tr><td>缺少报表访问权限</td><td>从报表链接触发申请提示</td><td>先申请，审批后继续</td></tr>
       </tbody>
     </table>
   </section>
 
-  <section class="section">
-    <h2>02 认识探索分析页面</h2>
-    <p class="lead">页面不用一次全懂，先认 5 个区域。</p>
-    <img class="shot" src="assets/easybi_explore_analysis.jpg" alt="EasyBI 探索分析模块截图">
-    <p class="note">截图用于说明页面结构：左侧是字段区，中间是配置和结果区，右上角通常有保存、下载、分析等操作。</p>
-    <table>
-      <thead><tr><th>页面区域</th><th>运营要理解什么</th></tr></thead>
+  <section class="section" id="basic-case">
+    <h2>03 案例教程 A：先用现成报表看订单数</h2>
+    <p class="lead">运营先关心业绩是否达成。这里不先堆转化指标，而是从最直接的业务结果开始：订单数。</p>
+    <div class="qline">问题：我负责的产品，订单数最近有没有明显变化？这会不会影响业绩达成？</div>
+    <div class="steps">
+      <div class="step"><b>1</b><p><strong>打开现成报表</strong>进入团队已经搭好的报表结果页。这里展示的是报表，不是让你先去选择数据集。</p></div>
+    </div>
+    <figure class="figure">
+      <img src="assets/easybi_pet_report_explore_entry.jpg" alt="宠物经营数据日报的现成报表结果表，包含按日订单数与过程指标">
+      <figcaption>步骤 1 图示（1/2）：现成报表结果页，按日期展示订单数及后续过程指标。</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="assets/easybi_explore_after_click.jpg" alt="点击探索分析后进入的工作台界面，左侧为字段配置，右侧为报表结果">
+      <figcaption>步骤 1 图示（2/2）：点击顶部「探索分析」后，进入可以继续筛选和拆解数据的工作台界面。</figcaption>
+    </figure>
+    <div class="steps">
+      <div class="step"><b>2</b><p><strong>在工作台筛选负责产品</strong>进入探索分析后，先看订单数；需要缩小范围时，用 <span class="kbd">insu_sku_id</span> 只看自己负责的产品。</p></div>
+    </div>
+    <figure class="figure narrow contain">
+      <img src="assets/easybi_pet_report_filter.png" alt="产品筛选下拉框，可选择具体保险产品">
+      <figcaption>步骤 2 图示：按产品筛选，只看自己负责的一块。</figcaption>
+    </figure>
+    <table class="op">
+      <thead><tr><th>看到什么</th><th>先怎么判断</th><th>下一步查什么</th></tr></thead>
       <tbody>
-        <tr><td>数据集 / 字段区</td><td>这里决定你能查哪些数据。没有权限或没有字段，就需要找分析师补。</td></tr>
-        <tr><td>维度</td><td>用来“按什么拆开看”，比如日期、渠道、产品、城市、用户层级。</td></tr>
-        <tr><td>指标</td><td>用来看结果大小，比如到期保费、续保保费、保单数、保单毛利。</td></tr>
-        <tr><td>过滤条件</td><td>用来限定范围，比如时间、渠道、产品、是否排除测试数据。</td></tr>
-        <tr><td>查询结果</td><td>看趋势、排名、分组差异，再决定下一步动作。</td></tr>
+        <tr><td>订单数连续下降</td><td>业绩承压的直接信号</td><td>再看是哪个产品、哪段日期最明显</td></tr>
+        <tr><td>订单数稳定，后续转化变差</td><td>流量/订单不是主要矛盾</td><td>继续看出单、留存、可转或已转环节</td></tr>
+        <tr><td>只在某天异常</td><td>先不急着定业务动作</td><td>确认数据更新与当天活动因素</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="section" id="query-checklist-entry">
-    <h2>03 查询前，先打开查数清单</h2>
-    <p class="lead">这张检查表嵌在正式课程这里用：真正点查询前，先确认自己没有漏掉时间、范围、维度。</p>
+    <h2>04 查数前的随手检查</h2>
     <div class="grid two">
-      <a class="card good" href="templates/工作台查询检查表.html"><h4>打开查数清单</h4><p>适合放在本节这里现场看。6 个问题：看什么指标、哪段时间、哪些范围、按什么拆、先看趋势还是分组、查不到什么。</p></a>
-      <a class="card" href="templates/指标拆解练习表.html"><h4>还没想清楚指标？</h4><p>先回到拆指标卡，把“为什么查这个数”想清楚，再来选字段。</p></a>
+      <a class="card good" href="templates/工作台查询检查表.html"><h4>打开查数清单</h4><p>记录主指标、时间、产品范围、拆分维度，以及改完动作后如何复看。</p></a>
+      <div class="card"><h4>本案例应该记什么</h4><p>主指标写「订单数」；范围写负责产品；时间写观察周期；下一层再写过程转化指标。</p></div>
     </div>
   </section>
 
   <section class="section">
-    <h2>04 一次查询的标准步骤</h2>
-    <div class="grid three">
-      <div class="card"><h4>1. 先选数据集</h4><p>例如保单数据集、续保数据集、投放数据集。选错数据集，后面都白查。</p></div>
-      <div class="card"><h4>2. 再选指标</h4><p>先选主指标，比如 T+30 保费续保率；再看分子分母，比如到期保费、续保保费。</p></div>
-      <div class="card"><h4>3. 加筛选条件</h4><p>明确时间、产品、渠道、人群范围。先别什么都切，越切越乱。</p></div>
-      <div class="card"><h4>4. 拖维度拆开看</h4><p>先按最可能影响结果的维度拆，比如渠道或产品。</p></div>
-      <div class="card"><h4>5. 点击查询</h4><p>先看整体趋势，再看分组差异。不要只盯某一天。</p></div>
-      <div class="card"><h4>6. 记录结论</h4><p>写清楚“哪里变了、变化从什么时候开始、可能影响下一步什么动作”。</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>05 示例：续保率下降，EasyBI 先怎么查</h2>
-    <p class="lead">目标不是把所有数据都拉出来，而是先判断下降来自哪里。</p>
+    <h2>05 功能介绍：探索分析怎么搭一张表</h2>
+    <p class="lead">现成报表回答不了新问题时，再进入「探索分析」。操作思路类似搭一张透视表：选数据集，把要拆的维度和要看的指标放进去。</p>
+    <figure class="figure">
+      <img src="assets/easybi_bbc_workspace.png" alt="BBC端到端漏斗数据的探索分析工作区">
+      <figcaption>探索分析工作区：左侧找字段，中间放配置，右侧看结果，底部点击查询。</figcaption>
+    </figure>
     <table>
-      <thead><tr><th>步骤</th><th>EasyBI 里怎么做</th><th>要回答的问题</th></tr></thead>
+      <thead><tr><th>页面区域</th><th>它在解决什么问题</th><th>示例</th></tr></thead>
       <tbody>
-        <tr><td>第一步</td><td>选择续保相关数据集，时间选近 8 周</td><td>续保率是真的连续下降，还是单日波动？</td></tr>
-        <tr><td>第二步</td><td>指标选择：T+30 保费续保率、到期保费、T+30 续保保费</td><td>是分母变了，还是分子变了？</td></tr>
-        <tr><td>第三步</td><td>维度选择：渠道</td><td>是所有渠道都下降，还是某个渠道拖低整体？</td></tr>
-        <tr><td>第四步</td><td>如果有字段，再看自动扣费成功保费、用户主动重新投保保费</td><td>续保保费下降来自自动扣费，还是来自用户主动重新投保？</td></tr>
-        <tr><td>第五步</td><td>如果工作台没有支付失败/触达明细，再找分析师</td><td>需要补什么数据，才能判断下一步动作？</td></tr>
+        <tr><td>数据集</td><td>我要从哪套数据里查</td><td>BBC端到端漏斗数据</td></tr>
+        <tr><td>维度（行）</td><td>我想按什么拆</td><td>`exp_hour_day`，按天看趋势</td></tr>
+        <tr><td>指标（列）</td><td>我要看什么业务结果</td><td>曝光、点击、下单、出保单</td></tr>
+        <tr><td>过滤条件</td><td>只研究哪个范围</td><td>日期范围、入口或产品</td></tr>
+        <tr><td>切换图表</td><td>数字或趋势用什么方式看</td><td>聚合表、折线图、漏斗图</td></tr>
       </tbody>
     </table>
+    <figure class="figure narrow contain">
+      <img src="assets/easybi_chart_picker.png" alt="探索分析切换图表面板，提供表格、折线图和漏斗图等类型">
+      <figcaption>图表选择：聚合表看数字，折线图看走势，漏斗图看各环节转化。</figcaption>
+    </figure>
   </section>
 
-  <section class="section">
-    <h2>06 看结果时，不要急着下结论</h2>
-    <div class="grid three">
-      <div class="card"><h4>先看趋势</h4><p>是某一天突然异常，还是连续几周下降？单日异常先谨慎判断。</p></div>
-      <div class="card"><h4>再看分组</h4><p>是整体都变差，还是某个渠道、产品、人群变差？</p></div>
-      <div class="card"><h4>最后看动作</h4><p>如果是入口问题，改入口；如果是提醒问题，改提醒；如果是支付问题，查扣费链路。</p></div>
+  <section class="section" id="advanced-case">
+    <h2>06 案例教程 B：用 BBC 漏斗自己搭查询</h2>
+    <p class="lead">这一段不是继续看别人做好的报表，而是学习在工作台里自己设置查询。案例从已经准备好的「BBC端到端漏斗数据」开始。</p>
+    <div class="qline">问题：从曝光到留存，哪个环节最可能拖累最终结果？</div>
+    <div class="steps">
+      <div class="step"><b>1</b><p><strong>新建探索分析，选择数据集</strong>在数据集列表选择「BBC端到端漏斗数据」，确认它覆盖曝光、点击、商详、下单、出保单和留存链路。</p></div>
+      <div class="step"><b>2</b><p><strong>放时间维度</strong>将 `exp_hour_day` 放入维度（行），先按天观察变化。</p></div>
+      <div class="step"><b>3</b><p><strong>放核心指标</strong>先选择 `expo_cnt`、`click_cnt`、`sxy_cnt`、`order_cnt`、`order_success_cnt`，不要一上来把所有字段塞进去。</p></div>
+      <div class="step"><b>4</b><p><strong>加必要筛选并查询</strong>限定观察日期或入口，点击「查询」，先看哪一段量级或转化最异常。</p></div>
+      <div class="step"><b>5</b><p><strong>切换视角</strong>表格确认数值，折线图看变化时间，漏斗图对照掉点位置。</p></div>
     </div>
-    <div class="takeaway">工作台查数的目标不是得到一张表，而是帮助判断下一步该做什么。</div>
-  </section>
-
-  <section class="section">
-    <h2>07 什么时候找分析师</h2>
+    <figure class="figure">
+      <img src="assets/easybi_bbc_dataset_picker.png" alt="选取数据集页面，其中 BBC端到端漏斗数据被选中">
+      <figcaption>第一步：在数据集列表中选择「BBC端到端漏斗数据」。</figcaption>
+    </figure>
     <table>
-      <thead><tr><th>EasyBI 可以先自己查</th><th>需要找分析师支持</th></tr></thead>
+      <thead><tr><th>想回答的问题</th><th>放入的字段</th><th>能推动的动作</th></tr></thead>
       <tbody>
-        <tr><td>已有指标的趋势、分组、排名</td><td>没有对应数据集权限</td></tr>
-        <tr><td>按日期、渠道、产品、人群筛选</td><td>工作台里没有需要的字段或指标</td></tr>
-        <tr><td>看分子分母变化</td><td>需要把触达、点击、支付、保单多张表串起来</td></tr>
-        <tr><td>导出结果做简单复核</td><td>需要沉淀长期看板或新增固定口径</td></tr>
+        <tr><td>曝光是不是少了</td><td>`expo_cnt` 按日趋势</td><td>检查入口曝光与投放/资源位安排</td></tr>
+        <tr><td>看到后是否愿意点</td><td>`click_cnt` 与曝光对照</td><td>调整入口文案、利益点或素材表达</td></tr>
+        <tr><td>点击后是否继续购买</td><td>`sxy_cnt`、`order_cnt`</td><td>优化商详承接与下单路径</td></tr>
+        <tr><td>订单是否最终成功</td><td>`order_success_cnt` 与留存指标</td><td>追查出保单/留存环节的损失点</td></tr>
       </tbody>
     </table>
-    <div class="takeaway">找分析师时，不要说“帮我看下数据”。要说：我在工作台看到了什么、缺什么、希望补哪一块。</div>
+    <div class="callout">当前截图能确认“选择已有数据集并自行配置查询”的过程；如果后续要讲“多张数据集如何关联”，请再补对应界面截图，本课再增加一个进阶步骤。</div>
   </section>
 
   <section class="section">
-    <h2>08 权限申请和支持需求怎么写</h2>
-    <div class="grid two">
-      <div class="card good"><h4>申请数据集权限</h4><p>我需要用 EasyBI 做续保问题自查，麻烦帮我开通续保相关数据集权限。主要会看 T+30 保费续保率、到期保费、T+30 续保保费，并按日期、渠道、产品拆分。</p></div>
-      <div class="card good"><h4>找分析师补数据</h4><p>我在 EasyBI 里看到渠道 A 的 T+30 保费续保率从 5 月 12 日开始下降，但工作台看不到自动扣费失败原因。麻烦帮我补渠道 A 近 8 周的扣费失败原因分布。</p></div>
+    <h2>07 查完以后，只留下一句话和一个动作</h2>
+    <div class="grid three">
+      <div class="card"><h4>我看到了什么</h4><p>例如：负责产品的订单数连续下降，或漏斗中的点击到下单环节变化最大。</p></div>
+      <div class="card"><h4>主要矛盾在哪</h4><p>把范围缩到一个产品、时间段或漏斗环节，不停在“整体不好”。</p></div>
+      <div class="card good"><h4>我先做什么</h4><p>决定一个运营能推动的动作，并约定用同样指标回来看结果。</p></div>
     </div>
+    <div class="takeaway">入门会看订单数，进阶会自己拆漏斗；工具最终服务的是运营动作，不是一份更长的报表。</div>
   </section>
 
-  <section class="section">
-    <h2>09 现场试查：只做第一步</h2>
-    <div class="card">
-      <h4>打开 EasyBI 前，先定一个查数方向</h4>
-      <p>现场只确认三件事：我要看哪个指标、按哪个维度拆、如果查不到要补什么字段。</p>
+  <section class="section qa">
+    <h2>08 1 分钟有奖竞答</h2>
+    <p class="lead">最后确认一次：你知道从哪里真正进入工作台。</p>
+    <div class="qa-question">从现成报表继续自己拆漏斗时，进入工作台的入口在哪里？</div>
+    <div class="qa-options">
+      <div class="qa-option">A. 页面顶部导航的「探索分析」</div>
+      <div class="qa-option">B. 报表表格里的任意数字</div>
+      <div class="qa-option">C. 下载按钮</div>
     </div>
+    <details>
+      <summary>查看答案</summary>
+      <p>答案是 A。进入「探索分析」后，再选择数据集、配置维度和指标完成查询。</p>
+    </details>
+    <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
   </section>
 
-  <footer class="footer">数据化运营训练营 · EasyBI 工作台版</footer>
+  <footer class="footer">运营怎么看数据 · 第三节 · 工作台实战</footer>
 </main>
 </body>
 </html>

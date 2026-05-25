@@ -1,12 +1,98 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第 2 期 · 数据是怎么来的</title><link rel="stylesheet" href="assets/style.css"></head><body><main class="deck">
-<section class="hero"><span class="eyebrow">第 2 期 · 口径与验数课</span><h1>数据是<br>怎么来的</h1><p>拿到数据以后，不要急着下结论。先看清楚：它从哪来、怎么算、可信不可信。</p><div class="meta"><span class="chip">时长：20 分钟</span><span class="chip">前置：第 1 期</span><span class="chip">现场工具：验数三步</span></div></section>
-<nav class="nav"><a href="index.html">课程地图</a><a href="01_先想清楚再查数_20分钟版.html">上一期</a><a href="03_EasyBI探索分析_20分钟版.html">下一期</a></nav>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>第二节 · 口径的陷阱，运营看数据的常见困扰</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="deck">
+  <section class="hero">
+    <span class="eyebrow">第二节 · 5 分钟 · 口径困扰</span>
+    <h1>口径的陷阱</h1>
+    <p>有了业务框架，还要确认自己看的数字是不是同一件事。同样叫“续保”，按单量、保费或时间窗口计算，答案会不同。</p>
+    <div class="meta">
+      <span class="chip">时长：5 分钟</span>
+      <span class="chip">承接：第一节的业绩目标树</span>
+      <span class="chip">记住：先问口径，再看结论</span>
+    </div>
+  </section>
 
-<section class="section"><h2>00 翻车场景：三个续保率都“没错”</h2><p class="lead">运营说 32%，分析师说 28%，产品说 35%。不是有人瞎算，而是三个人用的不是同一个口径。</p><table><thead><tr><th>角色</th><th>口径</th><th>适合回答什么</th></tr></thead><tbody><tr><td>运营</td><td>保单续保率</td><td>有多少单留下来了</td></tr><tr><td>分析师</td><td>保费续保率</td><td>收入有没有留下来</td></tr><tr><td>产品</td><td>自动续保路径续保率</td><td>自动签约链路是否有效</td></tr></tbody></table><div class="takeaway">不要先争谁对谁错，先问：你说的续保率，口径是什么？</div></section>
-<section class="section"><h2>01 数据不是天然正确的</h2><div class="grid four"><div class="card"><h4><span class="num">1</span>用户操作</h4><p>点击、浏览、投保、支付、取消。</p></div><div class="card"><h4><span class="num">2</span>埋点 / 日志</h4><p>可能漏打、延迟、重复上报。</p></div><div class="card"><h4><span class="num">3</span>数仓加工</h4><p>清洗、去重、关联、汇总。</p></div><div class="card"><h4><span class="num">4</span>报表看板</h4><p>按业务口径计算并展示。</p></div></div><div class="takeaway">数据是被定义、采集、加工、筛选之后的结果。</div></section>
-<section class="section"><h2>02 最常见的口径陷阱</h2><table><thead><tr><th>陷阱</th><th>为什么危险</th><th>提需求时怎么说清</th></tr></thead><tbody><tr><td>保单 vs 保费</td><td>单量没掉，不代表收入没掉。</td><td>明确按保单数还是保费金额。</td></tr><tr><td>T+0 vs T+30</td><td>当天低，不代表最终承接差。</td><td>明确观察窗口。</td></tr><tr><td>赠险是否进分母</td><td>赠险用户意愿和付费用户不同。</td><td>明确是否排除赠险、测试单。</td></tr><tr><td>退保重买</td><td>会把流失和回流同时放大。</td><td>明确看毛流失还是净流失。</td></tr></tbody></table></section>
-<section class="section"><h2>03 拿到数据后，先做三步验收</h2><div class="grid three"><div class="card"><h4><span class="num">1</span>看总量</h4><p>和体感是否接近。平时 30%，突然 3%，先别分析。</p></div><div class="card"><h4><span class="num">2</span>看分布</h4><p>按天、渠道、产品拆，有没有突然归零或暴涨。</p></div><div class="card"><h4><span class="num">3</span>交叉验证</h4><p>找另一个报表或后台对一下，确认不是口径或更新问题。</p></div></div></section>
-<section class="section"><h2>04 发现数据异常，别直接说“数据不准”</h2><p class="lead">运营要说清楚三件事：我原本预期它应该长什么样；现在看到它长什么样；我已经用什么地方简单核对过。</p><div class="compare"><div class="bad"><h4>不要这样说</h4><p>“这个数不对，你帮我看看。”</p><p class="mini">问题：对方不知道你看的是哪张表、哪个指标、哪一天，也不知道你为什么觉得不对。</p></div><div class="good"><h4>可以这样说</h4><p>“我在续保看板看渠道 A 的 T+30 保费续保率，平时大概在 30% 左右。从 5 月 12 日开始掉到 8%，但同一天后台的续保保费没有明显下降。麻烦帮我看下：是看板数据更新问题，还是渠道 A 的口径最近有调整？”</p><p class="mini">好处：说清楚了指标、时间、原本应该怎样、现在怎样、自己核对过什么。</p></div></div></section>
-<section class="section"><h2>05 运营不用排查技术原因，但要把现象说清楚</h2><table><thead><tr><th>你看到的现象</th><th>你可以怎么描述</th><th>请数据同学看什么</th></tr></thead><tbody><tr><td>某天突然掉到很低</td><td>“5 月 12 日前后一直约 30%，当天变成 8%。”</td><td>当天数据是否完整、看板是否更新</td></tr><tr><td>某个渠道和其他渠道走势不一样</td><td>“整体没明显下降，只有渠道 A 掉得很明显。”</td><td>渠道归属、渠道映射是否变过</td></tr><tr><td>两个系统看到的结果不一致</td><td>“看板显示下降，但后台金额没有同步下降。”</td><td>两个系统的口径、更新时间是否一致</td></tr><tr><td>某个分组突然变成 0</td><td>“不是逐步下降，是从某天开始直接为 0。”</td><td>字段是否缺失、分组规则是否变化</td></tr></tbody></table><div class="takeaway">不要替数据同学判断“哪里坏了”。运营只要把异常现象讲明白，对方就能更快定位。</div></section>
+  <nav class="nav">
+    <a href="index.html">课程地图</a>
+    <a href="01_先想清楚再查数_20分钟版.html">上一节：思维框架</a>
+    <a href="03_EasyBI探索分析_20分钟版.html">下一节：工作台实战</a>
+  </nav>
 
-<footer class="footer">数据化运营训练营 · 20 分钟快讲版</footer></main></body></html>
+  <section class="section">
+    <h2>00 为什么会困惑：三个“续保率”不是同一件事</h2>
+    <table>
+      <thead><tr><th>你看的口径</th><th>它在回答什么</th><th>适合连接哪类动作</th></tr></thead>
+      <tbody>
+        <tr><td>保单续保率</td><td>到期保单里，有多少张续回来了</td><td>客户续保路径与触达动作</td></tr>
+        <tr><td>保费续保率</td><td>到期保费里，有多少金额续回来了</td><td>业绩保费目标是否承接住</td></tr>
+        <tr><td>自动续保成功率</td><td>已签自动续保的保单，有多少成功完成续保</td><td>扣费链路和签约覆盖管理</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaway">名称听起来相似，不代表它们能回答同一个运营问题。</div>
+  </section>
+
+  <section class="section">
+    <h2>01 运营最常遇到的四个口径坑</h2>
+    <table>
+      <thead><tr><th>容易混的地方</th><th>一句人话</th><th>打开报表前先问</th></tr></thead>
+      <tbody>
+        <tr><td>保单 vs 保费</td><td>续回同样的单数，不代表续回同样的业绩金额</td><td>我今天关心单量，还是业绩保费？</td></tr>
+        <tr><td>T+0 vs T+30</td><td>今天没续上的人，30 天内还可能续回来</td><td>这个数观察到哪一天为止？</td></tr>
+        <tr><td>是否排除赠险 / 测试单</td><td>不该算的单放进来，比例就会失真</td><td>分母包含哪些保单？</td></tr>
+        <tr><td>产品 / 渠道范围</td><td>整体结果和我负责的一块可能完全不同</td><td>我看的范围是哪一块业务？</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>02 带进工作台前，只核对三件事</h2>
+    <div class="grid three">
+      <div class="card"><h4><span class="num">1</span>指标</h4><p>我看的是保费、订单数，还是某条路径的率值？</p></div>
+      <div class="card"><h4><span class="num">2</span>时间</h4><p>按天看、按月看，还是要等到 T+30 才完整？</p></div>
+      <div class="card"><h4><span class="num">3</span>范围</h4><p>产品、渠道和需排除的单，是否与我的问题一致？</p></div>
+    </div>
+    <div class="takeaway">第三节进入工作台时，先定这三件事，再点击查询。</div>
+  </section>
+
+  <section class="section">
+    <h2>03 带着这张框架进入实战课</h2>
+    <p class="lead">第一节知道目标如何形成，第二节确认看的数没有混口径，第三节再把框架放进工作台。这样打开报表时，知道每一个字段在回答哪一层问题。</p>
+    <div class="grid four">
+      <div class="card"><h4><span class="num">1</span>认识目标</h4><p>业绩保费是最终要交付的结果。</p></div>
+      <div class="card"><h4><span class="num">2</span>画出结构</h4><p>新单与续期共同构成目标。</p></div>
+      <div class="card"><h4><span class="num">3</span>确认口径</h4><p>分清金额、单量、时间窗口与范围。</p></div>
+      <div class="card"><h4><span class="num">4</span>进入工具</h4><p>在报表和工作台里找到对应字段。</p></div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <a class="card good" href="03_EasyBI探索分析_20分钟版.html#basic-case"><h4>案例 A：先用现成报表看订单数</h4><p>打开结果页，先读业绩产出的单量，再进入探索分析。</p></a>
+      <a class="card good" href="03_EasyBI探索分析_20分钟版.html#advanced-case"><h4>案例 B：用 BBC 漏斗自己搭查询</h4><p>沿曝光、点击、商详、下单等过程看业务路径。</p></a>
+    </div>
+  </section>
+
+  <section class="section qa">
+    <h2>04 1 分钟有奖竞答</h2>
+    <p class="lead">进入工具前，先确认你没有把不同口径当成同一个答案。</p>
+    <div class="qa-question">如果想判断“续期贡献了多少业绩金额”，应该优先确认哪个指标？</div>
+    <div class="qa-options">
+      <div class="qa-option">A. 保单续保率</div>
+      <div class="qa-option">B. 保费续保率</div>
+      <div class="qa-option">C. 自动续保成功率</div>
+    </div>
+    <details>
+      <summary>查看答案</summary>
+      <p>答案是 B。看业绩金额要使用保费口径；看续回多少张单，才使用保单口径。</p>
+    </details>
+    <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
+  </section>
+
+  <footer class="footer">运营怎么看数据 · 第二节 · 口径的陷阱</footer>
+</main>
+</body>
+</html>

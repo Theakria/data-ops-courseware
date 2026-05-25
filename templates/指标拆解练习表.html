@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>拆指标卡</title>
+  <title>续保路径图</title>
   <link rel="stylesheet" href="../assets/style.css">
   <style>
     .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
@@ -45,86 +45,86 @@
 <body>
 <main class="deck">
   <section class="hero">
-    <span class="eyebrow">课堂速查</span>
-    <h1>拆指标卡</h1>
-    <p>打开 EasyBI 前，先把“我要查什么、为什么查、查完怎么动”说清楚。运营同学不用写报告，能说出判断就够了。</p>
+    <span class="eyebrow">课堂放大图</span>
+    <h1>续保路径图</h1>
+    <p>续期保费来自续期保单。本图选择“续期单量”继续往下拆：理解可续机会怎样变成续期保单，就能把率值和运营动作对应起来。</p>
     <div class="meta">
-      <span class="chip">3 分钟定查数方向</span>
-      <span class="chip">建议嵌在第 1 期讲完公式后使用</span>
+      <span class="chip">3 分钟看懂续期驱动</span>
+      <span class="chip">第一节讲到续期时展开</span>
     </div>
   </section>
 
   <nav class="nav">
-    <a href="../01_先想清楚再查数_20分钟版.html#split-card-entry">回到第 1 期正文</a>
-    <a href="目标-拆解-数据自检卡.html">上一张：想清楚卡</a>
-    <a href="../03_EasyBI探索分析_20分钟版.html#query-checklist-entry">去第 3 期查数</a>
+    <a href="../01_先想清楚再查数_20分钟版.html#split-card-entry">回到第一节正文</a>
+    <a href="目标-拆解-数据自检卡.html">上一张：业绩目标树</a>
+    <a href="../03_EasyBI探索分析_20分钟版.html#query-checklist-entry">去第三节查数</a>
     <a href="工作台查询检查表.html">下一张：查数清单</a>
   </nav>
 
   <section class="section">
-    <h2>先别查数，先过 4 个问题</h2>
-    <p class="lead">不用填表。讲师现场带着过一遍，大家知道下一步怎么查就行。</p>
+    <h2>从目标到路径，先认清四层关系</h2>
+    <p class="lead">不用填表，也不留作业。讲师现场带着看：续期单量是如何由机会与续保能力共同形成的。</p>
     <div class="route">
-      <div class="route-card"><b>1</b><h3>哪里不对？</h3><p>例如：4 月续保保费下降。</p></div>
-      <div class="route-card"><b>2</b><h3>用什么判断？</h3><p>先选一个主指标，不要一上来堆很多数。</p></div>
-      <div class="route-card"><b>3</b><h3>先拆哪边？</h3><p>分母=本来有机会发生；分子=实际完成。</p></div>
-      <div class="route-card"><b>4</b><h3>查完怎么动？</h3><p>改提醒、改入口、做召回，或排查支付链路。</p></div>
+      <div class="route-card"><b>1</b><h3>总目标</h3><p>每天的宠物险业绩保费。</p></div>
+      <div class="route-card"><b>2</b><h3>业务板块</h3><p>续期保费来自续期保单。</p></div>
+      <div class="route-card"><b>3</b><h3>关键驱动</h3><p>可续盘子与保单续保率共同决定续保量。</p></div>
+      <div class="route-card"><b>4</b><h3>运营动作</h3><p>管理签约覆盖、扣费成功与重点召回。</p></div>
     </div>
-    <div class="no-homework">一句话记住：先判断要查什么，再打开工作台。</div>
+    <div class="no-homework">一句话记住：率值不是孤立指标，它是在解释某个业务板块怎样贡献业绩目标。</div>
   </section>
 
   <section class="section">
-    <h2>例子：续保保费下降，怎么拆</h2>
-    <p class="lead">看到下降，先不要问“为什么降了”。先把它拆成一个能判断的公式。</p>
+    <h2>例子：续期单量如何被做出来</h2>
+    <p class="lead">续期保费来自续期保单；这里不拆金额，而是先理解不同续保路径怎样把可续机会转成续期保单。</p>
     <div class="flow">
       <div class="flow-card">
-        <h3>业务现象</h3>
-        <p>4 月续保保费下降。</p>
-        <p><b>要判断：</b>是可续的盘子变小，还是到期客户没有被留住。</p>
+        <h3>业务结果</h3>
+        <p>支撑续期保费的续期保单量。</p>
+        <p><b>要理解：</b>续期单量由可续机会和续保能力共同形成。</p>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-card">
         <h3>核心指标</h3>
-        <p class="formula"><span>T+30 续保保费</span> ÷ <span>到期保费</span></p>
-        <p class="mini">T+30 的意思是：到期后 30 天内有没有续上。</p>
+        <p class="formula"><span>当前可续单</span> × <span>保单续保率</span></p>
+        <p class="mini">当前可续单 = 去年今日保单量 × 保单留存率。</p>
       </div>
     </div>
     <div class="answer-grid">
-      <div class="answer-card"><h3>先看分母</h3><p>到期保费少了吗？</p><p class="mini">少了，可能只是这个月可续的客户或金额变少。</p></div>
-      <div class="answer-card"><h3>再看分子</h3><p>T+30 续保保费少了吗？</p><p class="mini">少了，再拆自动扣费、主动重新投保。</p></div>
-      <div class="answer-card"><h3>最后看动作</h3><p>问题落在哪个环节？</p><p class="mini">触达、入口、扣费、渠道、人群。</p></div>
+      <div class="answer-card"><h3>先看可续盘子</h3><p>今天本来有多少保单可续？</p><p class="mini">看去年今日保单量与保单留存率。</p></div>
+      <div class="answer-card"><h3>再看续保路径</h3><p>可续单通过哪条路续回来？</p><p class="mini">已签自动续保约 60%；未签约约 40%。</p></div>
+      <div class="answer-card"><h3>最后找差距</h3><p>哪条路径损失最大？</p><p class="mini">自动续保成功率约 90%；手动/人工续保率低于 5%。</p></div>
     </div>
   </section>
 
   <section class="section">
-    <h2>查完后，看这张判断卡</h2>
-    <p class="lead">每张卡只回答两件事：我看到了什么；下一步先处理哪里。</p>
+    <h2>路径对应哪些运营动作</h2>
+    <p class="lead">建立框架的目的，是知道自己的工作改变的是目标树上的哪一环。</p>
     <div class="decision-grid">
       <div class="decision-card">
-        <h3>到期盘子变小</h3>
-        <p><b>看到：</b>到期保费下降，续保率基本没变。</p>
-        <p class="next"><b>下一步：</b>看产品、渠道、人群里，是哪一类到期客户变少。</p>
+        <h3>经营存量来源</h3>
+        <p><b>对应：</b>续期保费来自去年投放续期、零售场等存量盘子。</p>
+        <p class="next"><b>动作连接：</b>理解自己负责的存量来源，会贡献多少可续机会。</p>
       </div>
       <div class="decision-card">
-        <h3>续保没有接住</h3>
-        <p><b>看到：</b>到期保费没变，但 T+30 续保保费下降。</p>
-        <p class="next"><b>下一步：</b>重点看自动扣费和主动重新投保，确认哪条路径掉了。</p>
+        <h3>管理可续盘子</h3>
+        <p><b>对应：</b>当前可续单 = 去年今日保单量 × 保单留存率。</p>
+        <p class="next"><b>动作连接：</b>关注客户与保单留存，理解今天可续机会的来源。</p>
       </div>
       <div class="decision-card">
-        <h3>某个渠道拖累</h3>
-        <p><b>看到：</b>整体下降主要集中在某个渠道。</p>
-        <p class="next"><b>下一步：</b>先排查这个渠道的提醒触达、入口点击、支付成功。</p>
+        <h3>经营自动续保</h3>
+        <p><b>对应：</b>已签自动续保约占 60%，签约后成功续保率约 90%。</p>
+        <p class="next"><b>动作连接：</b>推动签约覆盖，并保障扣费成功。</p>
       </div>
       <div class="decision-card">
-        <h3>工作台字段不够</h3>
-        <p><b>看到：</b>工作台看不到失败原因、触达明细或行为路径。</p>
-        <p class="next"><b>下一步：</b>带着明确问题找分析师补字段，不要一开始就提大需求。</p>
+        <h3>经营未签约人群</h3>
+        <p><b>对应：</b>未签自动续保约占 40%，手动/人工续保率低于 5%。</p>
+        <p class="next"><b>动作连接：</b>识别重点人群，设计召回或引导签约动作。</p>
       </div>
     </div>
     <div class="no-homework">正式查询前，可以接着打开 <a class="plain-link" href="工作台查询检查表.html">查数清单</a>，确认时间、范围、维度。</div>
   </section>
 
-  <footer class="footer">拆指标卡 · HTML 版</footer>
+  <footer class="footer">运营怎么看数据 · 续保路径图</footer>
 </main>
 </body>
 </html>
