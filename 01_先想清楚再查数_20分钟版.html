@@ -18,6 +18,9 @@
     .map{margin-top:18px;padding:24px;border-radius:24px;border:1px solid var(--line);background:#fcfaf6}
     .map-title{max-width:430px;margin:0 auto 18px;padding:18px 20px;text-align:center;background:var(--blue);color:#fff;border-radius:18px;font-size:23px;font-weight:900}
     .map-caption{margin:-7px auto 18px;max-width:630px;text-align:center;color:#667085;font-weight:700}
+    .performance-formula{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 auto 20px;padding:15px 18px;max-width:780px;border-radius:16px;background:#eef8f3;border:1px solid #cfe7dc;font-size:20px;font-weight:900;color:#173f34}
+    .performance-formula .term{padding:5px 10px;border-radius:9px;background:#fff}
+    .performance-formula .deduct{color:#9f2b18;background:#fff3ef}
     .map-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     .branch{background:#fff;border:1px solid var(--line);border-radius:21px;padding:18px}
     .branch h3{margin:0 0 5px;font-size:22px;color:#136448}
@@ -86,7 +89,7 @@
     <p class="lead">每日看板上有很多数字，但它们不是并列的：最上面是你的目标，下面是组成目标的业务板块，以及影响这些板块的关键动作。</p>
     <div class="lesson-route">
       <div class="card"><h4><span class="num">1</span>目标是什么</h4><p>我每天要共同推动的最终结果，是宠物险业绩保费。</p></div>
-      <div class="card"><h4><span class="num">2</span>目标怎么组成</h4><p>业绩保费由新单和续期贡献，每一块还能继续拆来源。</p></div>
+      <div class="card"><h4><span class="num">2</span>目标怎么组成</h4><p>业绩保费由新单保费和续期保费贡献，同时要扣除发生的退保保费。</p></div>
       <div class="card"><h4><span class="num">3</span>我能影响哪里</h4><p>渠道运营、自动续保覆盖、扣费成功和召回动作，会影响结果。</p></div>
     </div>
     <div class="takeaway">业务思维框架，就是能说清：我的目标由什么构成，哪些业务动作会推动它。</div>
@@ -114,10 +117,19 @@
 
   <section class="section" id="daily-performance-map">
     <h2>02 图一：业绩保费的业务结构</h2>
-    <p class="lead">先不谈涨跌。第一步是把目标展开：每天的宠物险业绩保费，是由新单保费和续期保费共同构成的。</p>
+    <p class="lead">先不谈涨跌。第一步是把目标展开：每天的宠物险业绩保费，由新单保费和续期保费贡献，并扣除退保保费。</p>
     <div class="map">
       <div class="map-title">每天宠物险业绩保费</div>
       <p class="map-caption">目标不是孤立的数字，下面每一块业务贡献都与运营工作有关</p>
+      <div class="performance-formula">
+        <span>业绩保费</span>
+        <span>=</span>
+        <span class="term">新单保费</span>
+        <span>+</span>
+        <span class="term">续期保费</span>
+        <span>-</span>
+        <span class="term deduct">退保保费</span>
+      </div>
       <div class="map-branches">
         <article class="branch">
           <h3>新单保费</h3>
@@ -125,33 +137,33 @@
           <div class="source-grid">
             <div class="source">新宠</div>
             <div class="source">预约购商险</div>
-            <div class="source">其他新单来源</div>
+            <div class="source">续保新单（新保单首期）</div>
             <div class="source">宠物频道商险</div>
             <div class="source wide">电销项目等其他新单来源</div>
           </div>
-          <p class="branch-footer">理解：新单来自哪些经营阵地，各自贡献多少订单与保费。</p>
+          <p class="branch-footer">理解：新单保费来自新出的保单；续保会重出一张保单，它的首期也算新单保费。</p>
         </article>
         <article class="branch renew">
           <h3>续期保费</h3>
-          <p class="branch-question">续期保费来自续期保单；这些保单来自哪些存量来源？</p>
+          <p class="branch-question">续期保费来自已有月缴保单按期继续缴费，不是重新出一张保单。</p>
           <div class="source-grid">
-            <div class="source">去年投放续期</div>
-            <div class="source">零售场保费</div>
-            <div class="source wide">其他可续来源与项目</div>
+            <div class="source">第 2 期至第 11 期保费</div>
+            <div class="source">去年投放存量保单</div>
+            <div class="source wide">零售场等存量来源</div>
           </div>
-          <p class="branch-footer">理解：先知道续期保单来自哪些盘子；下一张图继续拆“续期单量”。</p>
+          <p class="branch-footer">理解：续期是已出保单的后续期次缴费；“续保新出一张单”不归在这里。</p>
         </article>
       </div>
-      <div class="decision-strip">这棵树让你知道：要提升业绩，必须知道自己在经营哪一块贡献。</div>
+    <div class="decision-strip">这棵树让你知道：要提升业绩，既要经营新增与续期贡献，也要看退保带来的扣减。</div>
     </div>
   </section>
 
   <section class="section" id="split-card-entry">
-    <h2>03 图二：续期保费下面，续期单量怎么形成</h2>
-    <p class="lead">续期保费来自续期保单。本例不继续拆金额，而是选择“续期单量”这一条线：今天能续回多少张保单，由可续机会和续保能力共同决定。</p>
+    <h2>03 图二：新单保费里的“续保新单”怎么形成</h2>
+    <p class="lead">续保会重新出一张新保单，它的首期保费归在新单保费。本例继续拆“续保新单量”：今天新出了多少张续保保单，由可续机会和续保能力共同决定。</p>
     <div class="formula-stack">
       <div class="formula-row">
-        <div class="formula-node">今天续保保单量</div>
+        <div class="formula-node">今天续保新单量</div>
         <div class="formula-op">=</div>
         <div class="formula-node light">当前可续单</div>
         <div class="formula-op">×</div>
@@ -181,7 +193,7 @@
       <div><b>如果有 100 张可续单</b>自动续保路径大约续回 60 × 90% = 54 张。</div>
       <div><b>未签约路径的现实差距</b>手动 / 人工续保只续回不到 40 × 5% = 2 张。</div>
     </div>
-    <div class="takeaway">看到率值的意义：不是多背几个指标，而是理解提升续期单量，可以从可续盘子、签约覆盖、扣费成功或召回路径入手，并最终支持续期保费目标。</div>
+    <div class="takeaway">看到率值的意义：不是多背几个指标，而是理解提升续保新单量，可以从可续盘子、签约覆盖、扣费成功或召回路径入手，并最终支持新单保费里的续保首期贡献。</div>
   </section>
 
   <section class="section">
@@ -195,22 +207,17 @@
     </div>
     <div class="grid two" style="margin-top:16px">
       <a class="card good" href="templates/目标-拆解-数据自检卡.html"><h4>放大看：业绩目标树</h4><p>把最终目标、业务构成、关键驱动与动作连成一张图。</p></a>
-      <a class="card good" href="templates/指标拆解练习表.html"><h4>放大看：续保路径图</h4><p>用续期板块示范，率值如何连接到具体动作。</p></a>
+      <a class="card good" href="templates/指标拆解练习表.html"><h4>放大看：续保路径图</h4><p>用新单保费里的续保来源示范，率值如何连接到具体动作。</p></a>
     </div>
   </section>
 
   <section class="section qa">
     <h2>05 1 分钟有奖竞答</h2>
-    <p class="lead">先不查数，检验你脑中有没有搭出目标树。</p>
-    <div class="qa-question">要理解“每天宠物险业绩保费”是怎么做出来的，第一步应该看什么？</div>
-    <div class="qa-options">
-      <div class="qa-option">A. 直接挑一个续保率盯住</div>
-      <div class="qa-option">B. 先看它由新单保费和续期保费等哪些部分构成</div>
-      <div class="qa-option">C. 先进入工作台把所有字段拖进来</div>
-    </div>
+    <p class="lead">请先判断保费归属，再代入公式计算。</p>
+    <div class="qa-question">今天续保了 10 单月缴保险，每单第 1 期 50 元，其中 1 单投保后立即退保。请问今天的业绩保费增加多少？请讲公式和逻辑。</div>
     <details>
-      <summary>查看答案</summary>
-      <p>答案是 B。先理解目标的业务结构，率值和工具查询才有上下文。</p>
+      <summary>查看参考答案</summary>
+      <p>业绩保费 = 新单保费 + 续期保费 - 退保保费 = (10 × 50) + 0 - (1 × 50) = 450 元。续保会新出保单，因此这 10 单的第 1 期计入新单保费；题目没有发生第 2 至第 11 期缴费，所以续期保费为 0。</p>
     </details>
     <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
   </section>
