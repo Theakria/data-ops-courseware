@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>第二节 · 口径的陷阱，运营看数据的常见困扰</title>
+  <title>第二节 · 数据陷阱，口径不对会让动作做错</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <main class="deck">
   <section class="hero">
-    <span class="eyebrow">第二节 · 5 分钟 · 口径困扰</span>
-    <h1>口径的陷阱</h1>
-    <p>有了业务框架，还要确认自己看的数字是不是同一件事。同样叫“续保”，按单量、保费或时间窗口计算，答案会不同。</p>
+    <span class="eyebrow">第二节 · 5 分钟 · 数据陷阱</span>
+    <h1>口径不对<br>动作会做错</h1>
+    <p>找到问题前，先确认数据是真实、完整且口径一致的。同样叫“续保”，按单量、保费、时间或范围计算，可能把你带向完全不同的动作。</p>
     <div class="meta">
       <span class="chip">时长：5 分钟</span>
       <span class="chip">承接：第一节的业绩目标树</span>
-      <span class="chip">记住：先问口径，再看结论</span>
+      <span class="chip">记住：先确认数据，再匹配动作</span>
     </div>
   </section>
 
   <nav class="nav">
     <a href="index.html">课程地图</a>
-    <a href="01_先想清楚再查数_20分钟版.html">上一节：思维框架</a>
-    <a href="03_EasyBI探索分析_20分钟版.html">下一节：工作台实战</a>
+    <a href="01_先想清楚再查数_20分钟版.html">上一节：找主要矛盾</a>
+    <a href="03_EasyBI探索分析_20分钟版.html">下一节：建查询视角</a>
   </nav>
 
   <section class="section">
-    <h2>00 为什么会困惑：三个“续保率”不是同一件事</h2>
+    <h2>00 同一个词，不一定指向同一个动作</h2>
     <table>
       <thead><tr><th>你看的口径</th><th>它在回答什么</th><th>适合连接哪类动作</th></tr></thead>
       <tbody>
@@ -35,14 +35,15 @@
         <tr><td>自动续保成功率</td><td>已签自动续保的保单，有多少成功完成续保</td><td>扣费链路和签约覆盖管理</td></tr>
       </tbody>
     </table>
-    <div class="takeaway">名称听起来相似，不代表它们能回答同一个运营问题。</div>
+    <div class="takeaway">指标名听起来相似，不代表它们能回答同一个问题，更不能直接触发同一个动作。</div>
   </section>
 
   <section class="section">
-    <h2>01 运营最常遇到的四个口径坑</h2>
+    <h2>01 运营最常遇到的五个数据陷阱</h2>
     <table>
       <thead><tr><th>容易混的地方</th><th>一句人话</th><th>打开报表前先问</th></tr></thead>
       <tbody>
+        <tr><td>数据是否真实完整</td><td>数据延迟、缺失或重复，可能制造一个不存在的异常</td><td>数据更新完整了吗，是否有异常重复或缺失？</td></tr>
         <tr><td>保单 vs 保费</td><td>续回同样的单数，不代表续回同样的业绩金额</td><td>我今天关心单量，还是业绩保费？</td></tr>
         <tr><td>T+0 vs T+30</td><td>今天没续上的人，30 天内还可能续回来</td><td>这个数观察到哪一天为止？</td></tr>
         <tr><td>是否排除赠险 / 测试单</td><td>不该算的单放进来，比例就会失真</td><td>分母包含哪些保单？</td></tr>
@@ -52,23 +53,24 @@
   </section>
 
   <section class="section">
-    <h2>02 带进工作台前，只核对三件事</h2>
-    <div class="grid three">
-      <div class="card"><h4><span class="num">1</span>指标</h4><p>我看的是保费、订单数，还是某条路径的率值？</p></div>
-      <div class="card"><h4><span class="num">2</span>时间</h4><p>按天看、按月看，还是要等到 T+30 才完整？</p></div>
-      <div class="card"><h4><span class="num">3</span>范围</h4><p>产品、渠道和需排除的单，是否与我的问题一致？</p></div>
+    <h2>02 行动之前，先核对四件事</h2>
+    <div class="grid four">
+      <div class="card"><h4><span class="num">1</span>真实性</h4><p>数据是否更新完整，是否可能缺失或重复？</p></div>
+      <div class="card"><h4><span class="num">2</span>指标</h4><p>我看的是保费、订单数，还是某条路径的率值？</p></div>
+      <div class="card"><h4><span class="num">3</span>时间</h4><p>按天看、按月看，还是要等到 T+30 才完整？</p></div>
+      <div class="card"><h4><span class="num">4</span>范围</h4><p>产品、渠道和需排除的单，是否与我的问题一致？</p></div>
     </div>
-    <div class="takeaway">第三节进入工作台时，先定这三件事，再点击查询。</div>
+    <div class="takeaway">数据不真或口径不对，后面的动作越快，越可能做错方向。</div>
   </section>
 
   <section class="section">
     <h2>03 带着这张框架进入实战课</h2>
-    <p class="lead">第一节知道目标如何形成，第二节确认看的数没有混口径，第三节再把框架放进工作台。这样打开报表时，知道每一个字段在回答哪一层问题。</p>
+    <p class="lead">第一节通过数据找到主要矛盾，第二节确认问题真实且口径一致，第三节再把这些判断配置成自己的查询视角。</p>
     <div class="grid four">
       <div class="card"><h4><span class="num">1</span>认识目标</h4><p>业绩保费是最终要交付的结果。</p></div>
       <div class="card"><h4><span class="num">2</span>画出结构</h4><p>新单与续期共同构成目标。</p></div>
-      <div class="card"><h4><span class="num">3</span>确认口径</h4><p>分清金额、单量、时间窗口与范围。</p></div>
-      <div class="card"><h4><span class="num">4</span>进入工具</h4><p>在报表和工作台里找到对应字段。</p></div>
+      <div class="card"><h4><span class="num">3</span>确认可信</h4><p>检查真实性、金额/单量、时间窗口与范围。</p></div>
+      <div class="card"><h4><span class="num">4</span>建立视角</h4><p>在工作台里配置能持续回答问题的字段。</p></div>
     </div>
     <div class="grid two" style="margin-top:16px">
       <a class="card good" href="03_EasyBI探索分析_20分钟版.html#basic-case"><h4>案例 A：先用现成报表看订单数</h4><p>打开结果页，先读业绩产出的单量，再进入探索分析。</p></a>
@@ -78,20 +80,16 @@
 
   <section class="section qa">
     <h2>04 1 分钟有奖竞答</h2>
-    <p class="lead">选出更稳妥的判断，看看你会不会混淆路径口径与整体结果。</p>
-    <div class="qa-question">今天有 100 张到期保单，自动续保成功率是 60%。能否直接判断今天总共续保了 60 张？</div>
-    <div class="qa-options">
-      <div class="qa-option">A. 可以，100 × 60% = 60 张</div>
-      <div class="qa-option">B. 不可以，还要知道自动续保覆盖量和人工 / 主动续保结果</div>
-    </div>
+    <p class="lead">这题考行动前的刹车：数字互相矛盾时，不要先做动作。</p>
+    <div class="qa-question">一个报表显示续保单下降，另一个报表显示续保表现稳定。你能不能马上安排召回动作？在行动前，至少要先确认什么？</div>
     <details>
       <summary>查看参考答案</summary>
-      <p>选 B。自动续保成功率只描述自动续保路径，不能直接代表全部续保结果。</p>
+      <p>不能马上行动。先确认两个报表看的是否是同一个指标口径、同一时间范围、同一产品或渠道范围，以及数据是否更新完整。只有确认问题真实存在，才能匹配正确动作。</p>
     </details>
     <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
   </section>
 
-  <footer class="footer">运营怎么看数据 · 第二节 · 口径的陷阱</footer>
+  <footer class="footer">运营怎么看数据 · 第二节 · 数据陷阱与正确动作</footer>
 </main>
 </body>
 </html>

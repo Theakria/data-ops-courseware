@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>第三节 · 实战课 - 如何使用工作台</title>
+  <title>第三节 · 用工作台建立自己的查询视角</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
     .figure{margin:22px 0 12px;padding:12px;border:1px solid #e7dfd4;border-radius:20px;background:#f8fafc}
@@ -30,9 +30,9 @@
 <body>
 <main class="deck">
   <section class="hero">
-    <span class="eyebrow">第三节 · 15 分钟 · 实战课</span>
-    <h1>如何使用<br>工作台</h1>
-    <p>带着第一节建立的业务框架，先打开现成报表，再进入探索分析自己搭一轮查询：从业绩结果看到具体业务路径。</p>
+    <span class="eyebrow">第三节 · 15 分钟 · 查询视角</span>
+    <h1>建立自己的<br>查询视角</h1>
+    <p>把“我负责的业务哪里出了问题”转换成可查看、可筛选、可下钻的一组数据配置：先看现成报表，再进入工作台自己搭查询。</p>
     <div class="meta">
       <span class="chip">时长：15 分钟</span>
       <span class="chip">入口与权限</span>
@@ -52,16 +52,16 @@
   </nav>
 
   <section class="section">
-    <h2>00 两条路线，先易后难</h2>
+    <h2>00 建立视角的两条路线，先易后难</h2>
     <div class="grid two">
       <div class="card good"><h4>入门：先看现成报表</h4><p>打开「宠物经营数据日报」，筛选自己负责的产品，先看订单数是否影响业绩达成。</p></div>
       <div class="card"><h4>进阶：再做探索分析</h4><p>进入「探索分析」，选择「BBC端到端漏斗数据」，自己放维度、指标和条件，定位漏斗哪一步出问题。</p></div>
     </div>
-    <div class="takeaway">不要求所有人一上来自己搭查询。先能从现成报表读出问题，再学习如何自行拆查。</div>
+    <div class="takeaway">自己的查询视角不用从零开始：先看懂现成报表，再配置能回答自己问题的字段和筛选范围。</div>
   </section>
 
   <section class="section" id="access">
-    <h2>01 进入工作台：入口与权限</h2>
+    <h2>01 开始建立视角：入口与权限</h2>
     <p class="lead">只记住一条路径：打开 EasyBI，有权限就从顶部进入「探索分析」；没有权限先按页面提示提交申请。</p>
     <div class="steps">
       <div class="step"><b>1</b><p><strong>直接打开链接</strong>进入 <span class="kbd">easybi.jd.com</span>。已有权限可继续使用；没有权限时，按页面申请提示提交访问申请。</p></div>
@@ -115,7 +115,7 @@
 
   <section class="section" id="advanced-case">
     <h2>03 案例教程 B：用 BBC 漏斗自己搭查询</h2>
-    <p class="lead">现成报表回答不了新问题时，再进入「探索分析」自己搭查询：选择数据集，把要拆的维度和要看的指标放进去。</p>
+    <p class="lead">现成报表回答不了自己的问题时，再进入「探索分析」建立查询视角：选择数据集，把要拆的时间、要看的指标和负责范围放进去。</p>
     <div class="qline">问题：从曝光到留存，哪个环节最可能拖累最终结果？</div>
     <div class="steps">
       <div class="step"><b>1</b><p><strong>新建探索分析，选择数据集</strong>在数据集列表选择「BBC端到端漏斗数据」，确认它覆盖曝光、点击、商详、下单、出保单和留存链路。</p></div>
@@ -166,7 +166,7 @@
   </section>
 
   <section class="section">
-    <h2>04 查完以后，只留下一句话和一个动作</h2>
+    <h2>04 查询视角建好后，只留下一句话和一个动作</h2>
     <div class="grid three">
       <div class="card"><h4>我看到了什么</h4><p>例如：负责产品的订单数连续下降，或漏斗中的点击到下单环节变化最大。</p></div>
       <div class="card"><h4>主要矛盾在哪</h4><p>把范围缩到一个产品、时间段或漏斗环节，不停在“整体不好”。</p></div>
@@ -177,22 +177,16 @@
 
   <section class="section qa">
     <h2>05 1 分钟有奖竞答</h2>
-    <p class="lead">先选第一步，再补充你会怎样继续向下定位。</p>
-    <div class="qa-question">平时每天续保约 100 单，今天只有 10 单。第一步应该怎么查？</div>
-    <div class="qa-options">
-      <div class="qa-option">A. 先看总可续规模和保单续保率是否变化</div>
-      <div class="qa-option">B. 直接找开发排查系统</div>
-      <div class="qa-option">C. 先修改运营活动</div>
-    </div>
-    <div class="qa-question">如果发现整体变化主要集中在某个 SKU，下一步应该怎么做？</div>
+    <p class="lead">提示：从“选什么数据、按什么时间看、看哪些指标、限定什么范围、查完怎么继续”五步回答。</p>
+    <div class="qa-question">你负责一个保险产品，最近发现订单数下降，想在工作台里建立自己的查询视角，判断问题出在哪里。你会怎么配置和查看？</div>
     <details>
       <summary>查看参考答案</summary>
-      <p>先选 A。确认是机会规模变少，还是续保率下降；再按产品下钻。若某个 SKU 波动明显，带着数据结果找产品经理和开发排查。</p>
+      <p>先选择包含订单数及相关过程指标的数据集；放入按日时间维度，观察下降从何时开始；放入订单数，并补充必要的曝光、点击、商详或出保单指标；筛选自己负责的产品，必要时限定渠道或入口；查询后先看哪一环变化最大，再继续下钻并匹配动作。</p>
     </details>
     <div class="qa-reward">现场首位答对者，可获得 30 分钟 1 对 1 私教辅导，直接带着真实问题一起解决。</div>
   </section>
 
-  <footer class="footer">运营怎么看数据 · 第三节 · 工作台实战</footer>
+  <footer class="footer">运营怎么看数据 · 第三节 · 建立自己的查询视角</footer>
 </main>
 </body>
 </html>
